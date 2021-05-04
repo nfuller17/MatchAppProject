@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -16,7 +17,28 @@ public class GameFragment extends Fragment {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-        View view = inflater.inflate(R.layout.fragment_game container, false);
+        // TODO: get spinner position from menu fragment
+        // TODO: or we could make separate classes for each level
+
+
+        int pos = 0;
+        //pos = spinner.getSelectedItemPosition()
+
+        View view;
+        if (pos == 0) {
+             view = inflater.inflate(R.layout.fragment_game_easy, container, false);
+        } else if (pos == 1) {
+            view = inflater.inflate(R.layout.fragment_game_medium, container, false);
+        } else {
+            view = inflater.inflate(R.layout.fragment_game_hard, container, false);
+        }
+
+
+
+
+
+
+
 
         // OnCreate code here
 
