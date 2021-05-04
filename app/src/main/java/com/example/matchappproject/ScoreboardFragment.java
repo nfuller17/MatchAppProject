@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-public class SecondFragment extends Fragment {
+public class ScoreboardFragment extends Fragment {
 
     @Override
     public View onCreateView(
@@ -17,7 +17,7 @@ public class SecondFragment extends Fragment {
             Bundle savedInstanceState
     ) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false);
+        return inflater.inflate(R.layout.fragment_scoreboard, container, false);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class SecondFragment extends Fragment {
         view.findViewById(R.id.button_second).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(SecondFragment.this)
+                NavHostFragment.findNavController(ScoreboardFragment.this)
                         .navigate(R.id.action_SecondFragment_to_FirstFragment);
             }
         });
