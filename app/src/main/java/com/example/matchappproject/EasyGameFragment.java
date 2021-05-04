@@ -1,16 +1,13 @@
 package com.example.matchappproject;
 
-import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageButton;
-import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -63,8 +60,6 @@ public class EasyGameFragment extends Fragment  {
                 cardSpaces.add(roww + coll);
             }
         }
-
-
 
 
 
