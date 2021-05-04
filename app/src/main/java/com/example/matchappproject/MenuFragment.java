@@ -41,8 +41,17 @@ public class MenuFragment extends Fragment {
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavHostFragment.findNavController(MenuFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_ThirdFragment);
+                if (spinner.getSelectedItemPosition() == 0) {
+                    NavHostFragment.findNavController(MenuFragment.this)
+                            .navigate(R.id.action_FirstFragment_to_EasyFragment);
+                } else if (spinner.getSelectedItemPosition() == 1) {
+                    NavHostFragment.findNavController(MenuFragment.this)
+                            .navigate(R.id.action_FirstFragment_to_MediumFragment);
+                } else {
+                    NavHostFragment.findNavController(MenuFragment.this)
+                            .navigate(R.id.action_FirstFragment_to_HardFragment);
+                }
+
             }
         });
 

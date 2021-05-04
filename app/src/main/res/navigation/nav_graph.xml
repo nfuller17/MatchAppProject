@@ -15,8 +15,14 @@
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
         <action
-        android:id="@+id/action_FirstFragment_to_ThirdFragment"
-        app:destination="@id/ThirdFragment" />
+            android:id="@+id/action_FirstFragment_to_EasyFragment"
+            app:destination="@id/EasyFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_MediumFragment"
+            app:destination="@id/MediumFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_HardFragment"
+            app:destination="@id/HardFragment" />
     </fragment>
 
     <fragment
@@ -31,13 +37,35 @@
     </fragment>
 
     <fragment
-        android:id="@+id/ThirdFragment"
-        android:name="com.example.matchappproject.GameFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_scoreboard" >
+        android:id="@+id/EasyFragment"
+        android:name="com.example.matchappproject.EasyGameFragment"
+        android:label="Easy Fragment"
+        tools:layout="@layout/fragment_game_easy" >
 
         <action
-            android:id="@+id/action_ThirdFragment_to_FirstFragment"
+            android:id="@+id/action_EasyFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/MediumFragment"
+        android:name="com.example.matchappproject.MediumGameFragment"
+        android:label="Medium Fragment"
+        tools:layout="@layout/fragment_game_medium" >
+
+        <action
+            android:id="@+id/action_MediumFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/HardFragment"
+        android:name="com.example.matchappproject.HardGameFragment"
+        android:label="Hard Fragment"
+        tools:layout="@layout/fragment_game_hard" >
+
+        <action
+            android:id="@+id/action_HardFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
 
