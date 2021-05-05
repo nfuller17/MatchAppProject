@@ -2,6 +2,7 @@ package com.example.matchappproject;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +14,17 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Random;
 
@@ -33,6 +44,9 @@ public class MediumGameFragment extends Fragment {
     int cardFlippedOverCounter = 0;
     boolean start = false;
     Chronometer chronometer;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    String user;
+    Map<String, Object> userAndScoreInDB;
 
     @Override
     public View onCreateView(
@@ -45,6 +59,35 @@ public class MediumGameFragment extends Fragment {
         buttonGrid = new ImageButton[row][col];
         cardFaces = new String[row][col];
         Chronometer chronometer = view.findViewById(R.id.chronometer_timer);
+
+        //TODO: make dialog or something for user to input their username
+        //this is temp username to test db
+        user = "Erin";
+
+        DocumentReference docRef = db.collection("High Scores Medium").document(user + " Score");
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Log.d("DB", "setting user and score");
+                        userAndScoreInDB = document.getData();
+                        Log.d("DB", "DocumentSnapshot data: " + document.getData());
+                        if (userAndScoreInDB.isEmpty()) {
+                            Log.d("GETTER", "userAndScoreInDb is null");
+                        } else {
+                            Log.d("GETTER", "userAndScoreInDb is" + userAndScoreInDB);
+                        }
+                    } else {
+                        Log.d("DB", "no such document");
+                    }
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.d("AUTH", "get failed with " + task.getException());
+                }
+            }
+        });
 
         for (int r = 0; r < row; r++) {
             for (int c = 0; c < col; c++) {
@@ -127,6 +170,7 @@ public class MediumGameFragment extends Fragment {
                         if (!cardAlreadyFlipped) {
                             if (start == false) {
                                 start = true;
+                                chronometer.setBase(SystemClock.elapsedRealtime());
                                 chronometer.start();
                             }
                             cardAlreadyFlippedID = cardFaces[finalR][finalC];
@@ -167,6 +211,76 @@ public class MediumGameFragment extends Fragment {
                             //all cards flipped over
                             if (cardFlippedOverCounter >= 24) {
                                 chronometer.stop();
+                                double timeElapsed = SystemClock.elapsedRealtime() - chronometer.getBase();
+                                //Log.d("TIME", "mili time taken is " + timeElapsed);
+                                timeElapsed /= 1000.0;
+                                //Log.d("TIME", "sec time taken is  " + timeElapsed);
+                                int minutes = (int) (timeElapsed / 60);
+                                //Log.d("TIME", "mine time taken is  " + minutes);
+
+
+                                double seconds = timeElapsed % 60;
+                                // it doesnt work right when i do the below code all in one line
+                                seconds *= 1000;
+                                seconds = Math.round(seconds);
+                                seconds /= 1000;
+                                Log.d("TIME", "time taken is  " + minutes + ":" + seconds);
+
+                                String time = minutes + ":" + seconds;
+
+                                HashMap<String, String> userAndScore = new HashMap<>();
+                                userAndScore.put(user, time);
+
+
+
+
+                                double timeCurrent = (minutes * 60) + seconds;
+
+                                //initialized it so i can use it in the if-else below
+                                //ensures that if timeinDBDoub doesnt exist in database, then current time will still be less
+                                double timeinDBDoub = timeCurrent + 1.0;
+
+                                if (!Objects.isNull(userAndScoreInDB)) {
+                                    String timeinDBStr = (String) userAndScoreInDB.get(user);
+                                    String[] s = timeinDBStr.split(":");
+                                    double min = Double.parseDouble(s[0]);
+                                    double sec = Double.parseDouble(s[1]);
+                                    timeinDBDoub = (min * 60) + sec;
+                                }
+
+                                if (Objects.isNull(userAndScoreInDB) || timeCurrent < timeinDBDoub) {
+                                    if (Objects.isNull(userAndScoreInDB)) {
+                                        Log.d("IF-ELSE", "userAndScoreInDb is null");
+                                    }
+                                    if (timeCurrent < timeinDBDoub) {
+                                        Log.d("IF-ELSE", "timeCurrent < timeinDBDoub = " + timeCurrent + " < " + timeinDBDoub);
+                                    }
+
+                                    // TODO: dialog pop-up for new high score
+                                    // code in this if-else only runs if there's a new high score
+                                    // i need the user's name at the very beginning of my code
+                                    // so user can't input their name in the dialog
+                                    // maybe there can be an EditText on the menu screen?
+                                    // and you can pass the value here
+                                    // or you could have a popup in onCreate where user inputs their name
+
+                                    //each user should only have 1 high score
+                                    // so their document is named after them
+                                    db.collection("High Scores Medium").document(user + " Score")
+                                            .set(userAndScore)
+                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void aVoid) {
+                                                    Log.d("DB", "DocumentSnapshot successfully written!");
+                                                }
+                                            })
+                                            .addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Log.w("DB", "Error writing document", e);
+                                                }
+                                            });
+                                }
                             }
 
                             cardAlreadyFlipped = false;
