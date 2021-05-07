@@ -1,8 +1,10 @@
 package com.example.matchappproject;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,6 +49,7 @@ public class MediumGameFragment extends Fragment {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     String user;
     Map<String, Object> userAndScoreInDB;
+    SharedPreferences sharedPref;
 
     @Override
     public View onCreateView(
@@ -60,9 +63,8 @@ public class MediumGameFragment extends Fragment {
         cardFaces = new String[row][col];
         Chronometer chronometer = view.findViewById(R.id.chronometer_timer);
 
-        //TODO: make dialog or something for user to input their username
-        //this is temp username to test db
-        user = "Erin";
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+        user = sharedPref.getString("Username", "Player");
 
         DocumentReference docRef = db.collection("High Scores Medium").document(user + " Score");
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {

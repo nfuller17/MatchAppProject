@@ -65,7 +65,8 @@
             android:layout_height="wrap_content"
             android:buttonTint="@color/maroon"
             android:text="@string/easy"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:checked="true"/>
 
         <RadioButton
             android:id="@+id/radioButton_medium"
@@ -105,14 +106,18 @@
                 android:layout_width="173dp"
                 android:layout_height="47dp"
                 android:gravity="center"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"/>
 
             <TextView
                 android:id="@+id/table_r1c2"
                 android:layout_width="173dp"
                 android:layout_height="47dp"
                 android:gravity="center"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"/>
 
         </TableRow>
 
@@ -125,14 +130,18 @@
                 android:layout_width="173dp"
                 android:layout_height="47dp"
                 android:gravity="center"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"/>
 
             <TextView
                 android:id="@+id/table_r2c2"
                 android:layout_width="173dp"
                 android:layout_height="47dp"
                 android:gravity="center"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"/>
 
         </TableRow>
 
@@ -145,14 +154,18 @@
                 android:layout_width="173dp"
                 android:layout_height="47dp"
                 android:gravity="center"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"/>
 
             <TextView
                 android:id="@+id/table_r3c2"
                 android:layout_width="173dp"
                 android:layout_height="47dp"
                 android:gravity="center"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"/>
         </TableRow>
 
         <TableRow
@@ -164,14 +177,18 @@
                 android:layout_width="173dp"
                 android:layout_height="47dp"
                 android:gravity="center"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"/>
 
             <TextView
                 android:id="@+id/table_r4c2"
                 android:layout_width="173dp"
                 android:layout_height="47dp"
                 android:gravity="center"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"/>
         </TableRow>
 
         <TableRow
@@ -183,14 +200,18 @@
                 android:layout_width="173dp"
                 android:layout_height="47dp"
                 android:gravity="center"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"/>
 
             <TextView
                 android:id="@+id/table_r5c2"
                 android:layout_width="173dp"
                 android:layout_height="47dp"
                 android:gravity="center"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"/>
         </TableRow>
 
         <TableRow
@@ -202,14 +223,18 @@
                 android:layout_width="173dp"
                 android:layout_height="47dp"
                 android:gravity="center"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"/>
 
             <TextView
                 android:id="@+id/table_r6c2"
                 android:layout_width="173dp"
                 android:layout_height="47dp"
                 android:gravity="center"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"/>
         </TableRow>
 
         <TableRow
@@ -221,14 +246,18 @@
                 android:layout_width="173dp"
                 android:layout_height="47dp"
                 android:gravity="center"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"/>
 
             <TextView
                 android:id="@+id/table_r7c2"
                 android:layout_width="173dp"
                 android:layout_height="47dp"
                 android:gravity="center"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"/>
         </TableRow>
 
         <TableRow
@@ -240,14 +269,18 @@
                 android:layout_width="173dp"
                 android:layout_height="47dp"
                 android:gravity="center"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"/>
 
             <TextView
                 android:id="@+id/table_r8c2"
                 android:layout_width="173dp"
                 android:layout_height="47dp"
                 android:gravity="center"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"/>
         </TableRow>
 
         <TableRow
@@ -259,14 +292,18 @@
                 android:layout_width="173dp"
                 android:layout_height="47dp"
                 android:gravity="center"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"/>
 
             <TextView
                 android:id="@+id/table_r9c2"
                 android:layout_width="173dp"
                 android:layout_height="47dp"
                 android:gravity="center"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"/>
         </TableRow>
 
     </TableLayout>

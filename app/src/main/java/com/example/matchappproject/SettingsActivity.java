@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import android.view.Menu;
@@ -27,7 +28,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         usernameET = (EditText) findViewById(R.id.editText_username);
-        sharedPref = SettingsActivity.this.getSharedPreferences("prefs", Context.MODE_PRIVATE);
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         usernameET.setText(sharedPref.getString(getString(R.string.username), "Player"));
 
     }
@@ -45,7 +46,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void saveClick(View save) {
-        sharedPref = SettingsActivity.this.getSharedPreferences("prefs", Context.MODE_PRIVATE);
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor = sharedPref.edit();
         if (usernameET.getText().toString().length() > 14) {
             Toast.makeText(this, R.string.usernameTooLong, Toast.LENGTH_SHORT).show();
