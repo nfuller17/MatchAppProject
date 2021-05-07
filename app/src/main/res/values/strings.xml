@@ -19,6 +19,7 @@
     <string name="username">Username</string>
     <string name="successfulUsernameChange">Username successfully saved.</string>
     <string name="failureUsernameChange">Could not change username.</string>
+    <string name="usernameTooLong">Username cannot exceed 14 characters. Changes not saved.</string>
     <string name="easy">Easy</string>
     <string name="medium">Medium</string>
     <string name="hard">Hard</string>

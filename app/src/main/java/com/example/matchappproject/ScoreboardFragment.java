@@ -27,7 +27,7 @@ public class ScoreboardFragment extends Fragment {
         RadioGroup radioGroup = (RadioGroup) view.findViewById(R.id.radioGroup_scoreboard);
         radioIndex = radioGroup.getCheckedRadioButtonId();
         Log.i("scoreboard", "radio index " + radioIndex + " selected.");
-        
+
         local = view.findViewById(R.id.button_local);
         local.setOnClickListener(new View.OnClickListener() {
             @Override

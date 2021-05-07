@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Initializes a single shared preference file
-        SharedPreferences sharedPref = this.getPreferences(this.MODE_PRIVATE);
+        SharedPreferences sharedPref = this.getSharedPreferences("prefs", this.MODE_PRIVATE);
 
         // Reads the username from the shared preference file. If no value for the key
         // R.string.username exists, sets the default username to "Player"

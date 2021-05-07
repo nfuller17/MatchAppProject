@@ -27,7 +27,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         usernameET = (EditText) findViewById(R.id.editText_username);
-        sharedPref = SettingsActivity.this.getPreferences(Context.MODE_PRIVATE);
+        sharedPref = SettingsActivity.this.getSharedPreferences("prefs", Context.MODE_PRIVATE);
         usernameET.setText(sharedPref.getString(getString(R.string.username), "Player"));
 
     }
@@ -45,22 +45,34 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void saveClick(View save) {
-        sharedPref = SettingsActivity.this.getPreferences(Context.MODE_PRIVATE);
+        sharedPref = SettingsActivity.this.getSharedPreferences("prefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        try {
-            editor.putString(getString(R.string.username), usernameET.getText().toString());
-            editor.apply();
-            Log.i("username", "username successfully written to shared preference");
-            Toast.makeText(this, R.string.successfulUsernameChange, Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            Log.i("username", "failed to write username to shared preference");
-            Toast.makeText(this, R.string.failureUsernameChange, Toast.LENGTH_SHORT).show();
+        if (usernameET.getText().toString().length() > 14) {
+            Toast.makeText(this, R.string.usernameTooLong, Toast.LENGTH_SHORT).show();
+        }
+        else {
+            try {
+                editor.putString(getString(R.string.username), usernameET.getText().toString());
+                editor.apply();
+                Log.i("username", "username successfully written to shared preference");
+                Toast.makeText(this, R.string.successfulUsernameChange, Toast.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                Log.i("username", "failed to write username to shared preference");
+                Toast.makeText(this, R.string.failureUsernameChange, Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
     public void menuClick(View menu) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        Log.d("life_cycle", "onResume invoked.");
+        super.onResume();
+        usernameET.setText(sharedPref.getString(getString(R.string.username), "Player"));
     }
 
 }
