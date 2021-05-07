@@ -19,6 +19,12 @@
     <string name="username">Username</string>
     <string name="successfulUsernameChange">Username successfully saved.</string>
     <string name="failureUsernameChange">Could not change username.</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+    <string name="local">Local</string>
+    <string name="global">Global</string>
+    <string name="refresh">Refresh</string>
 
     <string-array name="difficulty_array">
         <item>Easy</item>
