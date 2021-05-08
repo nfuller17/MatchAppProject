@@ -35,6 +35,7 @@
         android:layout_marginStart="14dp"
         android:ems="10"
         android:fontFamily="@font/caudex"
+        android:hint="@string/username"
         android:inputType="textPersonName"
         android:text="@string/defaultUser"
         android:textColor="@color/white"

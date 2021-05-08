@@ -36,6 +36,12 @@
         <item name="android:fontFamily">monospace</item>
     </style>
 
+    <style name="AlertDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorPrimary">#595959</item>
+        <item name="colorAccent">@color/black</item>
+    </style>
+
     <style name="Theme.MatchAppProject.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

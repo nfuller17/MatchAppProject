@@ -7,12 +7,15 @@ import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Chronometer;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -179,6 +182,8 @@ public class HardGameFragment extends Fragment {
                                     start = true;
                                     chronometer.setBase(SystemClock.elapsedRealtime());
                                     chronometer.start();
+                                    ((MainActivity)getActivity()).setGameState(1);
+                                    Log.i("game_state", "Currently in a game");
                                 }
                                 cardAlreadyFlippedID = cardFaces[finalR][finalC];
                                 //set button image to be face of card
@@ -218,6 +223,9 @@ public class HardGameFragment extends Fragment {
                                 //all cards flipped over
                                 if (cardFlippedOverCounter >= 34) {
                                     chronometer.stop();
+                                    ((MainActivity)getActivity()).setGameState(0);
+                                    Log.i("game_state", "Not in a game");
+
                                     double timeElapsed = SystemClock.elapsedRealtime() - chronometer.getBase();
                                     //Log.d("TIME", "mili time taken is " + timeElapsed);
                                     timeElapsed /= 1000.0;
@@ -308,7 +316,10 @@ public class HardGameFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
+        Menu menu = ((MainActivity)getActivity()).getMenu();
+        MenuItem settings = menu.findItem(R.id.action_settings);
+        settings.setVisible(false);
+        Toolbar toolbar = ((MainActivity)getActivity()).findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.match_title);
     }
 }

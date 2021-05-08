@@ -1,9 +1,11 @@
 package com.example.matchappproject;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.app.AlertDialog;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -18,6 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.DialogFragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.util.Log;
@@ -33,19 +36,25 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     String username;
+    Toolbar toolbar;
+    SharedPreferences sharedPref;
+    int gameState = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Initializes a single shared preference file
-        SharedPreferences sharedPref = this.getSharedPreferences("prefs", this.MODE_PRIVATE);
+        // Initializes shared preferences files
+        sharedPref = this.getSharedPreferences("prefs", this.MODE_PRIVATE);
 
         // Reads the username from the shared preference file. If no value for the key
         // R.string.username exists, sets the default username to "Player"
         username = sharedPref.getString(getString(R.string.username), "Player");
         Log.i("username", "username is " + username);
 
+        gameState = 0;
+        Log.i("game_state", "Not in a game");
+
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
@@ -69,13 +78,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private Menu optionsMenu;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        optionsMenu = menu;
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
-
         return true;
+    }
+
+    public Menu getMenu() {
+        return optionsMenu;
+    }
+
+    public void setGameState(int state) {
+        gameState = state;
     }
 
     @Override
@@ -92,5 +110,17 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Log.d("game_state", "game state is " + gameState);
+
+        if (gameState == 0)
+            super.onBackPressed();
+        else {
+            DialogFragment dialog = new ExitGameDialog();
+            dialog.show(getSupportFragmentManager(), "ExitGameDialog");
+        }
     }
 }

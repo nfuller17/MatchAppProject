@@ -55,10 +55,10 @@ public class SettingsActivity extends AppCompatActivity {
             try {
                 editor.putString(getString(R.string.username), usernameET.getText().toString());
                 editor.apply();
-                Log.i("username", "username successfully written to shared preference");
+                Log.i("username", "username successfully written to shared preferences");
                 Toast.makeText(this, R.string.successfulUsernameChange, Toast.LENGTH_SHORT).show();
             } catch (Exception e) {
-                Log.i("username", "failed to write username to shared preference");
+                Log.i("username", "failed to write username to shared preferences");
                 Toast.makeText(this, R.string.failureUsernameChange, Toast.LENGTH_SHORT).show();
             }
         }
