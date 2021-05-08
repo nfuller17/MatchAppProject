@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Match</string>
+    <string name="difficulty">Сложность</string>
+    <string name="play">Играть</string>
+    <string name="highScores">Лучшие результаты</string>
+    <string name="settings">Настройки</string>
+    <string name="changeUser">Изменение имени пользователя:</string>
+    <string name="saveChanges">Сохранить изменения</string>
+    <string name="menu">Меню</string>
+    <string name="username">Имя пользователя</string>
+    <string name="successfulUsernameChange">Имя пользователя успешно сохранено.</string>
+    <string name="failureUsernameChange">Не удалось изменить имя пользователя.</string>
+    <string name="usernameTooLong">Имя пользователя не может превышать 14 символов. Изменения не сохраняются.</string>
+    <string name="languageSupport">Это приложение поддерживает следующие языки---</string>
+    <string name="changeLanguage">Изменить язык</string>
+    <string name="Spanish">"испанский "</string>
+    <string name="French">Французский</string>
+    <string name="Russian">русский</string>
+    <string name="Hindi">хинди</string>
+    <string name="easy">Легкий</string>
+    <string name="medium">Середина</string>
+    <string name="hard">Трудный</string>
+    <string name="local">Местный</string>
+    <string name="global">Глобальный</string>
+    <string name="refresh">Обновить</string>
+    <string name="gameInProgress">Игра продолжается!</string>
+    <string name="exitConfirmation">Вы уверены, что хотите выйти? Вы потеряете весь текущий прогресс.</string>
+    <string name="confirm">Подтверждать</string>
+    <string name="cancel">Отмена</string>
+    <string name="player">Игрок</string>
+    <string name="noUsername">Имя пользователя не может быть пустым. Изменения не сохраняются.</string>
+    <string name="English">английский</string>
+</resources>

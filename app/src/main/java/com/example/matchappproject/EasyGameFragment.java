@@ -272,7 +272,6 @@ public class EasyGameFragment extends Fragment  {
 
 
 
-
                                 if (Objects.isNull(userAndScoreInDB) || timeCurrent < timeinDBDoub) {
                                     if (Objects.isNull(userAndScoreInDB)) {
                                         Log.d("IF-ELSE", "userAndScoreInDb is null");
@@ -280,14 +279,6 @@ public class EasyGameFragment extends Fragment  {
                                     if (timeCurrent < timeinDBDoub) {
                                         Log.d("IF-ELSE", "timeCurrent < timeinDBDoub = " + timeCurrent + " < " + timeinDBDoub);
                                     }
-
-                                    // TODO: dialog pop-up for new high score
-                                    // code in this if-else only runs if there's a new high score
-                                    // i need the user's name at the very beginning of my code
-                                    // so user can't input their name in the dialog
-                                    // maybe there can be an EditText on the menu screen?
-                                    // and you can pass the value here
-                                    // or you could have a popup in onCreate where user inputs their name
 
                                     //each user should only have 1 high score
                                     // so their document is named after them

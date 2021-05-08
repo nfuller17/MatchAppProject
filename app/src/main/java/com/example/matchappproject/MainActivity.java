@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Reads the username from the shared preference file. If no value for the key
         // R.string.username exists, sets the default username to "Player"
-        username = sharedPref.getString(getString(R.string.username), "Player");
+        username = sharedPref.getString(getString(R.string.username), getString(R.string.player));
         Log.i("username", "username is " + username);
 
         gameState = 0;
@@ -116,8 +116,12 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         Log.d("game_state", "game state is " + gameState);
 
-        if (gameState == 0)
+        if (gameState == 0) {
             super.onBackPressed();
+            toolbar.setTitle("");
+            MenuItem settings = optionsMenu.findItem(R.id.action_settings);
+            settings.setVisible(true);
+        }
         else {
             DialogFragment dialog = new ExitGameDialog();
             dialog.show(getSupportFragmentManager(), "ExitGameDialog");

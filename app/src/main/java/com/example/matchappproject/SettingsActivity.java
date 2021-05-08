@@ -29,7 +29,7 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         usernameET = (EditText) findViewById(R.id.editText_username);
         sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        usernameET.setText(sharedPref.getString(getString(R.string.username), "Player"));
+        usernameET.setText(sharedPref.getString(getString(R.string.username), getString(R.string.player)));
 
     }
 
@@ -51,6 +51,9 @@ public class SettingsActivity extends AppCompatActivity {
         if (usernameET.getText().toString().length() > 14) {
             Toast.makeText(this, R.string.usernameTooLong, Toast.LENGTH_SHORT).show();
         }
+        else if (usernameET.getText().toString().length() == 0) {
+            Toast.makeText(this, R.string.noUsername, Toast.LENGTH_SHORT).show();
+        }
         else {
             try {
                 editor.putString(getString(R.string.username), usernameET.getText().toString());
@@ -66,6 +69,12 @@ public class SettingsActivity extends AppCompatActivity {
 
     public void menuClick(View menu) {
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void changeLang(View change) {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.setClassName("com.android.settings", "com.android.settings.LanguageSettings");
         startActivity(intent);
     }
 

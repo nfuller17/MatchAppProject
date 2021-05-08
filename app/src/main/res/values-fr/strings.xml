@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Match</string>
+    <string name="difficulty">Difficulté</string>
+    <string name="play">Jouer</string>
+    <string name="highScores">Scores Élevés</string>
+    <string name="settings">Paramètres</string>
+    <string name="changeUser">Changer le Nom D\'utilisateur:</string>
+    <string name="saveChanges">Sauvegarder les Modifications</string>
+    <string name="menu">Menu</string>
+    <string name="username">Nom D\'utilisateur</string>
+    <string name="successfulUsernameChange">Le nom d\'utilisateur a bien été enregistré.</string>
+    <string name="failureUsernameChange">Impossible de changer le nom d\'utilisateur.</string>
+    <string name="usernameTooLong">Le nom d\'utilisateur ne peut pas dépasser 14 caractères. Modifications non enregistrées.</string>
+    <string name="languageSupport">Cette application prend en charge les langues suivantes:</string>
+    <string name="changeLanguage">Changer de Langue</string>
+    <string name="Spanish">Espanol</string>
+    <string name="French">Français</string>
+    <string name="Russian">Russe</string>
+    <string name="Hindi">Hindi</string>
+    <string name="easy">Facile</string>
+    <string name="medium">Moyen</string>
+    <string name="hard">Difficile</string>
+    <string name="local">Local</string>
+    <string name="global">Global</string>
+    <string name="refresh">Rafraîchir</string>
+    <string name="gameInProgress">Jeu en Cours!</string>
+    <string name="exitConfirmation">Êtes-vous sûr de vouloir quitter? Vous perdrez tous les progrès actuels.</string>
+    <string name="confirm">Confirmer</string>
+    <string name="cancel">Annuler</string>
+    <string name="player">Joueur</string>
+    <string name="noUsername">Le nom d\'utilisateur ne peut pas être vide. Modifications non enregistrées.</string>
+    <string name="English">Anglais</string>
+</resources>

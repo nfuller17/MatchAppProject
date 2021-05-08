@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Match</string>
+    <string name="cancel">रद्द करना</string>
+    <string name="confirm">पुष्टि करें</string>
+    <string name="exitConfirmation">क्या आप वाकई छोड़ना चाहते हैं? आप सभी वर्तमान प्रगति खो देंगे।</string>
+    <string name="gameInProgress">गेम चालू है!</string>
+    <string name="refresh">"ताज़ा करना "</string>
+    <string name="global">वैश्विक</string>
+    <string name="local">स्थानीय</string>
+    <string name="hard">कठिन</string>
+    <string name="medium">मध्यम</string>
+    <string name="easy">आसान</string>
+    <string name="Hindi">हिंदी</string>
+    <string name="Russian">रूसी</string>
+    <string name="French">फ्रेंच</string>
+    <string name="Spanish">स्पेनिश</string>
+    <string name="changeLanguage">भाषा बदलें</string>
+    <string name="languageSupport">यह एप्लिकेशन निम्नलिखित भाषाओं का समर्थन करता है:</string>
+    <string name="failureUsernameChange">उपयोगकर्ता नाम नहीं बदल सका।</string>
+    <string name="successfulUsernameChange">उपयोगकर्ता नाम सफलतापूर्वक सहेजा गया।</string>
+    <string name="username">उपयोगकर्ता नाम</string>
+    <string name="menu">मेन्यू</string>
+    <string name="saveChanges">परिवर्तनों को सुरक्षित करें:</string>
+    <string name="changeUser">उपयोगकर्ता नाम परिवर्तन करें:</string>
+    <string name="highScores">उच्च अंक</string>
+    <string name="settings">समायोजन</string>
+    <string name="play">खेल</string>
+    <string name="difficulty">कठिनाई</string>
+    <string name="player">खिलाड़ी</string>
+    <string name="noUsername">उपयोगकर्ता नाम खाली नहीं हो सकता। परिवर्तन सहेजे नहीं गए।</string>
+    <string name="usernameTooLong">उपयोगकर्ता नाम 14 वर्णों से अधिक नहीं हो सकता। परिवर्तन सहेजे नहीं गए।</string>
+    <string name="English">अंग्रेज़ी</string>
+</resources>

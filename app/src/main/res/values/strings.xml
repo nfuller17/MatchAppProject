@@ -1,26 +1,35 @@
 <resources>
-    <string name="app_name">Match</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name" translatable="false">Match</string>
+    <string name="action_settings" translatable="false">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-    <string name="match_title">Match</string>
+    <string name="first_fragment_label" translatable="false">First Fragment</string>
+    <string name="second_fragment_label" translatable="false">Second Fragment</string>
+    <string name="next" translatable="false">Next</string>
+    <string name="previous" translatable="false">Previous</string>
+    <string name="match_title" translatable="false">Match</string>
     <string name="difficulty">Difficulty</string>
     <string name="play">Play</string>
     <string name="highScores">High Scores</string>
-    <string name="timer">0.00</string>
+    <string name="timer" translatable="false">0.00</string>
 
     <string name="settings">Settings</string>
     <string name="changeUser">Change Username:</string>
-    <string name="defaultUser">Player</string>
+    <string name="defaultUser" translatable="false">Player</string>
     <string name="saveChanges">Save Changes</string>
     <string name="menu">Menu</string>
     <string name="username">Username</string>
+    <string name="player">Player</string>
     <string name="successfulUsernameChange">Username successfully saved.</string>
     <string name="failureUsernameChange">Could not change username.</string>
     <string name="usernameTooLong">Username cannot exceed 14 characters. Changes not saved.</string>
+    <string name="noUsername">Username cannot be empty. Changes not saved.</string>
+    <string name="languageSupport">This app supports the following languages:</string>
+    <string name="changeLanguage">Change Language</string>
+    <string name="English">English</string>
+    <string name="Spanish">Spanish</string>
+    <string name="French">French</string>
+    <string name="Russian">Russian</string>
+    <string name="Hindi">Hindi</string>
 
     <string name="easy">Easy</string>
     <string name="medium">Medium</string>
@@ -29,19 +38,16 @@
     <string name="global">Global</string>
     <string name="refresh">Refresh</string>
 
-    <string name="gameInProgress">Game In Progress!</string>
-    <string name="exitConfirmation">Are you sure you want to quit?\nYou will lose all current progress.</string>
+    <string name="gameInProgress">Game in Progress!</string>
+    <string name="exitConfirmation">Are you sure you want to quit? You will lose all current progress.</string>
     <string name="confirm">Confirm</string>
     <string name="cancel">Cancel</string>
 
-    <string name="inGame">inGameState</string>
+    <string name="inGame" translatable="false">inGameState</string>
 
     <string-array name="difficulty_array">
-        <item>Easy</item>
-        <item>Medium</item>
-        <item>Hard</item>
+        <item>@string/easy</item>
+        <item>@string/medium</item>
+        <item>@string/hard</item>
     </string-array>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>
