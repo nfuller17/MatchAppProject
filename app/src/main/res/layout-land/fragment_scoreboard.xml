@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ScoreboardFragment">
+
+
+    <TextView
+        android:id="@+id/textView_highscores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/highScores"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_local"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/local"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup_scoreboard" />
+
+    <Button
+        android:id="@+id/button_global"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/global"
+        app:layout_constraintStart_toEndOf="@id/button_local"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup_scoreboard" />
+
+    <Button
+        android:id="@+id/button_refresh"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:text="@string/refresh"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/button_sc2menu"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup_scoreboard" />
+
+    <Button
+        android:id="@+id/button_sc2menu"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/menu"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup_scoreboard" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup_scoreboard"
+        android:layout_width="346dp"
+        android:layout_height="47dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="23dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_highscores">
+
+        <RadioButton
+            android:id="@+id/radioButton_easy"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/maroon"
+            android:text="@string/easy"
+            android:textColor="@color/white"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/radioButton_medium"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/maroon"
+            android:text="@string/medium"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/radioButton_hard"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/maroon"
+            android:text="@string/hard"
+            android:textColor="@color/white" />
+    </RadioGroup>
+
+    <TableLayout
+        android:id="@+id/table_highScores"
+        android:layout_width="346dp"
+        android:layout_height="231dp"
+        android:background="@color/gold"
+        android:divider="@android:drawable/divider_horizontal_textfield"
+        android:showDividers="middle|beginning|end"
+        android:stretchColumns="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_global">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/table_r1c1"
+                android:layout_width="173dp"
+                android:layout_height="24dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/table_r1c2"
+                android:layout_width="173dp"
+                android:layout_height="24dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/table_r2c1"
+                android:layout_width="173dp"
+                android:layout_height="24dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/table_r2c2"
+                android:layout_width="173dp"
+                android:layout_height="24dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/table_r3c1"
+                android:layout_width="173dp"
+                android:layout_height="24dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/table_r3c2"
+                android:layout_width="173dp"
+                android:layout_height="24dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/table_r4c1"
+                android:layout_width="173dp"
+                android:layout_height="24dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/table_r4c2"
+                android:layout_width="173dp"
+                android:layout_height="24dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/table_r5c1"
+                android:layout_width="173dp"
+                android:layout_height="24dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/table_r5c2"
+                android:layout_width="173dp"
+                android:layout_height="24dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/table_r6c1"
+                android:layout_width="173dp"
+                android:layout_height="24dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/table_r6c2"
+                android:layout_width="173dp"
+                android:layout_height="24dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/table_r7c1"
+                android:layout_width="173dp"
+                android:layout_height="24dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/table_r7c2"
+                android:layout_width="173dp"
+                android:layout_height="24dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/table_r8c1"
+                android:layout_width="173dp"
+                android:layout_height="24dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/table_r8c2"
+                android:layout_width="173dp"
+                android:layout_height="24dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/table_r9c1"
+                android:layout_width="173dp"
+                android:layout_height="24dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/table_r9c2"
+                android:layout_width="173dp"
+                android:layout_height="24dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+        </TableRow>
+
+    </TableLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
