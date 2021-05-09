@@ -57,7 +57,6 @@ public class MediumGameFragment extends Fragment {
     Map<String, Object> userAndScoreInDB;
     SharedPreferences sharedPref;
 
-    long timeWhenStopped;
     View view;
 
     @Override
@@ -78,52 +77,11 @@ public class MediumGameFragment extends Fragment {
         settings.setVisible(false);
 
         buttonGrid = new ImageButton[row][col];
-        timeWhenStopped = 0;
+
 
         cardFaces = new String[row][col];
         Chronometer chronometer = view.findViewById(R.id.chronometer_timer);
 
-        super.onCreateView(inflater, container, savedInstanceState);
-
-
-        if (savedInstanceState != null) {
-            // Restore last state for checked position.
-            for (int r = 0; r < row; r++) {
-                for (int c = 0; c < col; c++) {
-                    String buttonID = "button" + r + c;
-                    int id = getResources().getIdentifier(buttonID, "id", getActivity().getPackageName());
-
-                    buttonGrid[r][c] = view.findViewById(id);
-                    ImageButton im =  buttonGrid[r][c];
-                    String imgResource = savedInstanceState.getString("btn" + r + c, "");
-                    Log.d("ONN CREATE", "img resource for " + "btn" + r + c + "is " + imgResource);
-
-
-                    int imgID = getResources().getIdentifier(imgResource , "mipmap", getActivity().getPackageName());
-
-                    im.setImageResource(imgID);
-
-
-
-
-                }
-            }
-            start = savedInstanceState.getBoolean("b");
-            if (start == true) {
-                ((MainActivity)getActivity()).setGameState(1);
-                long t = savedInstanceState.getLong("time");
-                double min = savedInstanceState.getDouble("min");
-                double sec = savedInstanceState.getDouble("sec");
-                chronometer.setText(min + ":" + sec);
-                timeWhenStopped = t;
-                Log.d("TIME", "time when stopped is" + t);
-                Log.d("CHRON", "unpause base is " + SystemClock.elapsedRealtime());
-                chronometer.setBase(SystemClock.elapsedRealtime() + timeWhenStopped);
-                chronometer.start();
-
-            }
-
-        }
 
 
 
@@ -379,59 +337,5 @@ public class MediumGameFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        Chronometer ch = view.findViewById(R.id.chronometer_timer);
 
-        long timeElapsed = ch.getBase() - SystemClock.elapsedRealtime() ;
-        outState.putLong("time", timeElapsed);
-        timeElapsed /= 1000.0;
-        int minutes = (int) (timeElapsed / 60);;
-
-        double seconds = timeElapsed % 60;
-        // it doesnt work right when i do the below code all in one line
-        seconds *= 1000;
-        seconds = Math.round(seconds);
-        seconds /= 1000;
-
-        outState.putDouble("min", minutes);
-        outState.putDouble("sec", seconds);
-
-
-        for (int r = 0; r < row; r++) {
-            for (int c = 0; c < col; c++) {
-                String buttonID = "button" + r + c;
-                int id = getResources().getIdentifier(buttonID, "id", getActivity().getPackageName());
-
-
-                ImageButton im = view.findViewById(id);
-
-                //imgID1 = cardFaces[r][c];
-                //Log.d("ID", "image id1 is " + imgID1);
-                String imgID = (String) im.getTag();
-
-                Drawable cardBack = getResources().getDrawable(R.mipmap.ic_card);
-                if (imgID.equals("R.mipmap.ic_card")) {
-                    Log.d("PUTTING", "putting ic_card in " + "btn" + r + c);
-                    outState.putString("btn" + r + c, "ic_card");
-                } else {
-                    String s = cardFaces[r][c];
-                    Log.d("PUTTING", "putting"+ s +" in " + "btn" + r + c);
-                    outState.putString("btn" + r + c, s);
-                }
-                outState.putBoolean("b", start);
-                outState.putInt("gamestate", ((MainActivity)getActivity()).getGameState());
-
-
-            }
-        }
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        Log.d("ON", "onActivityCreated called");
-        super.onActivityCreated(savedInstanceState);
-
-    }
 }
