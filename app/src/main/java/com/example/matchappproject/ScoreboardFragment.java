@@ -1,5 +1,6 @@
 package com.example.matchappproject;
 
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -58,6 +59,31 @@ public class ScoreboardFragment extends Fragment {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
+        Log.d("ON", "onCreateView called");
+        view = inflater.inflate(R.layout.fragment_scoreboard, container, false);
+        super.onCreateView(inflater, container, savedInstanceState);
+
+
+
+        if (savedInstanceState != null) {
+            // Restore last state for checked position.
+            for (int i = 1; i <= 9; i++) {
+                int id = getResources().getIdentifier("table_r" + i + "c1" , "id", getActivity().getPackageName());
+                Log.d("ONN in onCreate", "view id id " + "table_r" + i + "c1");
+                playerName = view.findViewById(id);
+                Log.d("ONN in oncreate", "foundViewByID for table_r" + i + "c1");
+                String p = savedInstanceState.getString("player" + i, "");
+                playerName.setText(p);
+
+                id = getResources().getIdentifier("table_r" + i + "c2" , "id", getActivity().getPackageName());
+                playerScore = view.findViewById(id);
+                String s = savedInstanceState.getString("score" + i, "");
+                playerScore.setText(s);
+
+
+            }
+
+        }
         view = inflater.inflate(R.layout.fragment_scoreboard, container, false);
 
         RadioGroup radioGroup = (RadioGroup) view.findViewById(R.id.radioGroup_scoreboard);
@@ -317,8 +343,33 @@ public class ScoreboardFragment extends Fragment {
 
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        for (int i = 1; i <= 9; i++) {
+            int id = getResources().getIdentifier("table_r" + i + "c1" , "id", getActivity().getPackageName());
+            Log.d("ONN", "view id id " + "table_r" + i + "c1");
+            playerName = view.findViewById(id);
+            String p = (String) playerName.getText();
+            id = getResources().getIdentifier("table_r" + i + "c2" , "id", getActivity().getPackageName());
+            playerScore = view.findViewById(id);
+            String s = (String) playerScore.getText();
 
-}
+            outState.putString("player" + i, p);
+            outState.putString("score" + i, s);
+        }
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        Log.d("ON", "onActivityCreated called");
+        super.onActivityCreated(savedInstanceState);
+        }
+    }
+
+
+
+
 
 
 
