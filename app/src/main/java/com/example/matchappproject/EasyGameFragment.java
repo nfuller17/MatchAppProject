@@ -1,6 +1,8 @@
 package com.example.matchappproject;
 
+import android.app.Activity;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -71,6 +73,10 @@ public class EasyGameFragment extends Fragment  {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        //any code about saving instance state was for when the screen was rotated
+        // but i didn't get to finish debugging it
+
         view = inflater.inflate(R.layout.fragment_game_easy, container, false);
         buttonGrid = new ImageButton[row][col];
         timeWhenStopped = 0;
@@ -448,6 +454,7 @@ public class EasyGameFragment extends Fragment  {
         super.onActivityCreated(savedInstanceState);
 
     }
+
 
 }
 

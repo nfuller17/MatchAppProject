@@ -1,6 +1,7 @@
 package com.example.matchappproject;
 
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -66,6 +67,9 @@ public class MediumGameFragment extends Fragment {
     ) {
 
         view = inflater.inflate(R.layout.fragment_game_medium, container, false);
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        //any code about saving instance state was for when the screen was rotated
+        // but i didn't get to finish debugging it
 
         buttonGrid = new ImageButton[row][col];
         timeWhenStopped = 0;
