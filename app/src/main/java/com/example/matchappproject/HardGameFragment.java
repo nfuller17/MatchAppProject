@@ -1,6 +1,7 @@
 package com.example.matchappproject;
 
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -64,6 +65,9 @@ public class HardGameFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        //any code about saving instance state was for when the screen was rotated
+        // but i didn't get to finish debugging it
         view = inflater.inflate(R.layout.fragment_game_hard, container, false);
 
         Menu menu = ((MainActivity)getActivity()).getMenu();

@@ -84,7 +84,6 @@ public class ScoreboardFragment extends Fragment {
             }
 
         }
-        view = inflater.inflate(R.layout.fragment_scoreboard, container, false);
 
         RadioGroup radioGroup = (RadioGroup) view.findViewById(R.id.radioGroup_scoreboard);
 
