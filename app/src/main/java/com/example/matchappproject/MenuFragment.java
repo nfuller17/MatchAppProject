@@ -38,8 +38,6 @@ public class MenuFragment extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-        // TODO: carry over last selected difficulty in spinner?
-
         // Inflate the layout for this fragment
 
         play = view.findViewById(R.id.button_play);
@@ -68,8 +66,6 @@ public class MenuFragment extends Fragment {
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
         });
-
-
 
         return view;
     }

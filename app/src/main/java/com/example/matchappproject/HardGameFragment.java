@@ -65,6 +65,13 @@ public class HardGameFragment extends Fragment {
     ) {
 
         view = inflater.inflate(R.layout.fragment_game_hard, container, false);
+
+        Menu menu = ((MainActivity)getActivity()).getMenu();
+        Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.match_title);
+        MenuItem settings = menu.findItem(R.id.action_settings);
+        settings.setVisible(false);
+
         buttonGrid = new ImageButton[row][col];
         cardFaces = new String[row][col];
         Chronometer chronometer = view.findViewById(R.id.chronometer_timer);
